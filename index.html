@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Morse Code Example</title>
+  </head>
+  <body>
+    <script src="data.js"></script>
+    <script>
+      let testString = "Hello there";
+      let testOutput = ".... . .-.. .-.. ---  - .... . .-. .";
+      //const map = new Map(Object.entries({ foo: "bar" }));
+      const translate = inputString => {
+        let translatedString = "";
+        for (index = 0; index < inputString.length; index++) {
+          translatedString +=
+            translateLetterToMorseCode(inputString.charAt(index)) + " ";
+        }
+        return translatedString;
+      };
+
+      const translateLetterToMorseCode = inputLetter => {
+        return morseData[inputLetter.toLowerCase()];
+        //Object.keys(morseData).find(key => morseData[key] === value)
+      };
+
+      console.log(translate(testString));
+      console.log(testOutput);
+    </script>
+  </body>
+</html>
